@@ -1,0 +1,8 @@
+:host {
+    background-image: url('../../assets/background.jpg');
+    min-height: 500px;
+    display: block;
+    background-size: cover; 
+    background-repeat: no-repeat;
+    background-position: center center;    
+}
