@@ -1,1 +1,4 @@
 <app-sub-header title='Recent Transactions'></app-sub-header>
+<div>
+    <app-transaction-item *ngFor='let transaction of transactions' [transaction]='transaction'></app-transaction-item>
+</div>

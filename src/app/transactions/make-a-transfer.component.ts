@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Form, FormGroup, FormControl } from '@angular/forms';
 
 @Component({
@@ -14,9 +14,16 @@ export class MakeATransferComponent implements OnInit {
     amount: new FormControl(null, []),
   });
 
+  @Output()
+  public createTransfer: EventEmitter<any> = new EventEmitter();
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  public tryToSubmit() {
+    console.log(this.form.value);
+    this.createTransfer.emit(this.form.value);
+  }
 }

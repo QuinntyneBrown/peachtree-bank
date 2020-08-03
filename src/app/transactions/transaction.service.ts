@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, of, BehaviorSubject } from 'rxjs';
 import { data } from './data';
 import { Transaction } from './transaction';
 
@@ -7,5 +7,5 @@ import { Transaction } from './transaction';
   providedIn: 'root'
 })
 export class TransactionService {
-  public transactions$: Observable<Transaction[]> = of(data);
+  public transactions$: BehaviorSubject<Transaction[]> = new BehaviorSubject(data);
 }

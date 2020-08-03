@@ -1,11 +1,10 @@
 :host {
     display: block;
-    background-color: rgb(255, 255, 255);
+
 }
 
 app-sub-header {
-    height: 42px;
-    line-height: 42px;    
+    --main-bg-color:42px;
 }
 
 label {
@@ -18,6 +17,7 @@ label {
 :host > div {
     padding: 30px 15px;
     margin: 0;
+    background-color: rgb(255, 255, 255);
 }
 
 form div {

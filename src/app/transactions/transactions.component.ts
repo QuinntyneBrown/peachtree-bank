@@ -17,4 +17,7 @@ export class TransactionsComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  public handleCreateTransfer(value) {
+
+  }
 }
