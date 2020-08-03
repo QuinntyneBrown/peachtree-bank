@@ -6,3 +6,12 @@
     background-repeat: no-repeat;
     background-position: center center;    
 }
+
+div {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 30px;
+    margin-top: 70px;
+}

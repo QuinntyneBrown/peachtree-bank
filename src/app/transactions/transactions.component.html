@@ -1,1 +1,4 @@
-<app-make-a-transfer></app-make-a-transfer>
+<div *ngIf="transactions$ | async as transactions">
+    <app-make-a-transfer></app-make-a-transfer>
+    <app-recent-transactions [transactions]="transactions"></app-recent-transactions>
+</div>

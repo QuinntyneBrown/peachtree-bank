@@ -1,0 +1,30 @@
+:host {
+    display: grid;
+
+    background-color: #0c8397;
+    grid-template-columns: 56px 1fr;
+    justify-content: center;
+    align-content: center;
+}
+
+h4 {
+    color: rgb(255, 255, 255);
+    font-weight: 300;
+    margin: 0;
+    padding: 0;
+    line-height:1.5em;
+    text-align: center;
+}
+
+div {
+    width: 100%;
+    display: block;    
+}
+
+img {
+    display: block;
+    mix-blend-mode: screen;    
+    filter: invert(200%) brightness(700%) grayscale(100%) contrast(2) opacity(.65);
+    margin: 0 auto;
+    max-height: 20px;
+}

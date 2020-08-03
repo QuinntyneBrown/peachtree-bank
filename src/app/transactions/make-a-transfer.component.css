@@ -1,0 +1,8 @@
+:host {
+    display: block;
+}
+
+app-sub-header {
+    height: 42px;
+    line-height: 42px;    
+}

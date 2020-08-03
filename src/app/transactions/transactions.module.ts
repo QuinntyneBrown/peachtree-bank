@@ -5,13 +5,20 @@ import { MakeATransferComponent } from './make-a-transfer.component';
 import { RecentTransactionsComponent } from './recent-transactions.component';
 import { TransactionItemComponent } from './transaction-item.component';
 import { TransactionService } from './transaction.service';
-
+import { SharedModule } from '../shared/shared.module';
+import { CoreModule } from '../core/core.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [TransactionsComponent, MakeATransferComponent, RecentTransactionsComponent, TransactionItemComponent],
   imports: [
-    CommonModule
+    CoreModule,
+    SharedModule,
+
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     TransactionService
