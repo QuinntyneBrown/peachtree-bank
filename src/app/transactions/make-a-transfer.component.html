@@ -1,1 +1,21 @@
 <app-sub-header title='Make a Transfer'></app-sub-header>
+<div>
+    <form novalidate autocomplete='off' spellcheck='false' [formGroup]='form'>
+        <div>
+            <label>FROM ACCOUNT</label>
+            <input type="text">
+        </div>
+    
+        <div>
+            <label>TO ACCOUNT</label>
+            <input type="text">
+        </div>
+        
+        <div>
+            <label>AMOUNT</label>
+            <input type="text" placeholder="$0.00">
+        </div>
+        
+        <app-button></app-button>
+    </form>
+</div>
