@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ElementRef } from '@angular/core';
 import { Transaction } from './transaction';
 
 @Component({
@@ -10,10 +10,34 @@ export class TransactionItemComponent implements OnInit {
 
   @Input()
   public transaction: Transaction;
-  
-  constructor() { }
+
+  constructor(public elementRef: ElementRef) {
+
+  }
 
   ngOnInit(): void {
+    let color = '#fff';
+
+    switch (this.transaction.transactionType) {
+
+      case 'Card Payment': {
+        color = '#12a580';
+        break;
+      }
+
+      case 'Online Transfer': {
+        color = '#c12020';
+        break;
+      }
+
+      case 'Transaction': {
+        color = '#1180aa';
+        break;
+      }
+
+    }
+    this.elementRef.nativeElement.style.setProperty('--border-color', color);
+
   }
 
 }

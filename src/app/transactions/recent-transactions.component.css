@@ -5,3 +5,17 @@ app-sub-header {
     height: 60px;
     line-height: 60px;    
 }
+
+div {
+    padding:30px 20px;
+    background-color: #fff;
+}
+
+app-transaction-item {
+    border-right: 1px solid #ccc;
+}
+
+app-transaction-item:first-child {
+    border-top: 1px solid #ccc;
+
+}
