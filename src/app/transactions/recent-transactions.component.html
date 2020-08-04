@@ -1,8 +1,8 @@
 <app-sub-header title='Recent Transactions'></app-sub-header>
 <div class='recentTransactions__controls'>
-    <app-search></app-search>
-    <app-sort-by></app-sort-by>
+    <input type="text" placeholder="Search by typing..." [(ngModel)]='searchInput' (change)='onChange()'>
+    <app-sort-by (sort)='onSort($event)'></app-sort-by>
 </div>
 <div>
-    <app-transaction-item *ngFor='let transaction of transactions' [transaction]='transaction'></app-transaction-item>
+    <app-transaction-item *ngFor='let transaction of transactions | search : searchInput | multiOrderBy : sortOptions' [transaction]='transaction'></app-transaction-item>
 </div>

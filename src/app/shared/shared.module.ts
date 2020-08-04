@@ -8,6 +8,7 @@ import { SearchComponent } from './search.component';
 
 
 
+
 @NgModule({
   declarations: [
     HeaderComponent,
@@ -24,7 +25,7 @@ import { SearchComponent } from './search.component';
     HeaderComponent,
     SubHeaderComponent,
     SearchComponent,
-    SortByComponent,
+    SortByComponent
   ]
 })
 export class SharedModule { }

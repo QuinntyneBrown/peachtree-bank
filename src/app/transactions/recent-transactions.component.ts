@@ -6,14 +6,23 @@ import { Transaction } from './transaction';
   templateUrl: './recent-transactions.component.html',
   styleUrls: ['./recent-transactions.component.css']
 })
-export class RecentTransactionsComponent implements OnInit {
+export class RecentTransactionsComponent  {
+
+  public searchInput: string;
+
+  public sortOptions: any;
 
   @Input()
   public transactions: Transaction[];
 
-  constructor() { }
+  public onSort($event): void {
+    this.sortOptions = $event;
+    this.sortOptions.searchInput = this.searchInput;
+  }
 
-  ngOnInit(): void {
+  public onChange(): void {
+    this.sortOptions.searchInput = this.searchInput;
   }
 
 }
+

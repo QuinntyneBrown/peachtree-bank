@@ -8,10 +8,18 @@ import { TransactionService } from './transaction.service';
 import { SharedModule } from '../shared/shared.module';
 import { CoreModule } from '../core/core.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { MultiOrderByPipe } from './multi-order-by.pipe';
+import { SearchPipe } from './search.pipe';
 
 @NgModule({
-  declarations: [TransactionsComponent, MakeATransferComponent, RecentTransactionsComponent, TransactionItemComponent],
+  declarations: [
+    TransactionsComponent,
+    MakeATransferComponent,
+    RecentTransactionsComponent,
+    TransactionItemComponent,
+    SearchPipe,
+    MultiOrderByPipe
+  ],
   imports: [
     CoreModule,
     SharedModule,

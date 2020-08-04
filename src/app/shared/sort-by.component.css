@@ -24,3 +24,7 @@ span {
 span:nth-child(2) {
     border-left: 1px #ccc solid;
 }
+
+span:not(:first-child) {
+    cursor: pointer;
+}
