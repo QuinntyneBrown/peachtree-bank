@@ -17,5 +17,10 @@ app-transaction-item {
 
 app-transaction-item:first-child {
     border-top: 1px solid #ccc;
+}
 
+.recentTransactions__controls {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap:30px;
 }

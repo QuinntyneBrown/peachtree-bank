@@ -11,12 +11,10 @@ export class TransactionItemComponent implements OnInit {
   @Input()
   public transaction: Transaction;
 
-  constructor(public elementRef: ElementRef) {
-
-  }
+  constructor(public elementRef: ElementRef) { }
 
   ngOnInit(): void {
-    let color = '#fff';
+    let color: string;
 
     switch (this.transaction.transactionType) {
 
@@ -36,8 +34,7 @@ export class TransactionItemComponent implements OnInit {
       }
 
     }
+
     this.elementRef.nativeElement.style.setProperty('--border-color', color);
-
   }
-
 }

@@ -1,4 +1,8 @@
 <app-sub-header title='Recent Transactions'></app-sub-header>
+<div class='recentTransactions__controls'>
+    <app-search></app-search>
+    <app-sort-by></app-sort-by>
+</div>
 <div>
     <app-transaction-item *ngFor='let transaction of transactions' [transaction]='transaction'></app-transaction-item>
 </div>

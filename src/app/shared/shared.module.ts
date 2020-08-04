@@ -14,7 +14,8 @@ import { SearchComponent } from './search.component';
     ButtonComponent,
     SubHeaderComponent,
     SortByComponent,
-    SearchComponent],
+    SearchComponent
+  ],
   imports: [
     CommonModule
   ],
@@ -23,7 +24,7 @@ import { SearchComponent } from './search.component';
     HeaderComponent,
     SubHeaderComponent,
     SearchComponent,
-    SortByComponent
+    SortByComponent,
   ]
 })
 export class SharedModule { }

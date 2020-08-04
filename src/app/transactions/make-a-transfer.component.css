@@ -25,21 +25,6 @@ form div {
     text-align: left;
 }
 
-input {
-    border:none;
-    border-bottom: 1px solid;
-    width: 100%;
-    border-color: #ccc;
-    padding: 0;
-    margin: 0;
-    line-height: 40px;
-    font-size: 11px;
-}
-
-input:focus { 
-    outline: none;
-}
-
 form {
     text-align: right;
 }
