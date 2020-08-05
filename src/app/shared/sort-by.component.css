@@ -19,6 +19,7 @@ span {
     padding: 0 20px;
     border-top: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
+    user-select: none;
 }
 
 span:nth-child(2) {

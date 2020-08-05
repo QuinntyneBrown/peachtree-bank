@@ -13,7 +13,7 @@ export class TransferConfirmation {
     constructor(private overlay: Overlay, private injector: Injector) {
 
     }
-    public create(options: { transaction: Transaction }): void {
+    public create(options: { transaction: Transaction }): TransferConfirmationOverlayComponent {
         const positionStrategy = this.overlay.position()
         .global()
         .centerHorizontally()
@@ -27,6 +27,7 @@ export class TransferConfirmation {
         const overlayComponent = this.attachOverlayContainer(overlayRef);
 
         overlayComponent.transaction = options.transaction;
+        return overlayComponent;
     }
 
     public attachOverlayContainer(overlayRef): TransferConfirmationOverlayComponent {
@@ -38,3 +39,5 @@ export class TransferConfirmation {
         return overlayPortalRef.instance;
     }
 }
+
+

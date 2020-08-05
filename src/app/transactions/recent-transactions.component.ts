@@ -12,17 +12,17 @@ export class RecentTransactionsComponent  {
 
   public sortOptions: any;
 
+  public sortAscending = true;
+
   @Input()
   public transactions: Transaction[];
 
   public onSort($event): void {
     this.sortOptions = $event;
-    this.sortOptions.searchInput = this.searchInput;
+    //this.sortOptions.searchInput = this.searchInput;
   }
 
-  public onChange(): void {
-    this.sortOptions.searchInput = this.searchInput;
-  }
+
 
 }
 

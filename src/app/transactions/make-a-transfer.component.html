@@ -3,19 +3,31 @@
     <form novalidate autocomplete='off' spellcheck='false' [formGroup]='form'>
         <div>
             <label>FROM ACCOUNT</label>
-            <input type="text" formControlName='fromAccount'>
+            <input type="text" disabled [placeholder]="fromAccountPlaceholder">
         </div>
     
         <div>
             <label>TO ACCOUNT</label>
             <input type="text" formControlName='toAccount'>
         </div>
-        
+        <div class='error-message' *ngIf="toAccount.errors?.required && (form.dirty || form.touched)">
+            To Account is required
+        </div>
         <div>
             <label>AMOUNT</label>
             <input type="text" placeholder="$0.00" formControlName='amount'>
         </div>
+        <div class='error-message' *ngIf="amount.errors?.required && (form.dirty || form.touched)">
+            Amount is required
+        </div>
+        <div class='error-message' *ngIf="amount.errors?.pattern && (form.dirty || form.touched)">
+            Amount must be numeric
+        </div>     
+        <div class='error-message' *ngIf="form.errors?.minimumBalance && (form.dirty || form.touched)">
+            Balance can not drop below -$500.00
+        </div>    
         
-        <button (click)='tryToSubmit()'>SUBMIT</button>
+        <button (click)='tryToSubmit()' [disabled]='!form.valid'>SUBMIT</button>
     </form>
+
 </div>

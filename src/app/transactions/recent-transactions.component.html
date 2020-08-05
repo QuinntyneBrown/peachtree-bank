@@ -1,7 +1,7 @@
 <app-sub-header title='Recent Transactions'></app-sub-header>
 <div class='recentTransactions__controls'>
-    <input type="text" placeholder="Search by typing..." [(ngModel)]='searchInput' (change)='onChange()'>
-    <app-sort-by (sort)='onSort($event)'></app-sort-by>
+    <input type="text" placeholder="Search by typing..." [(ngModel)]='searchInput'>
+    <app-sort-by (sort)='onSort($event)' [sortBy]='"Date"' [sortAscending]='sortAscending'></app-sort-by>
 </div>
 <div>
     <app-transaction-item *ngFor='let transaction of transactions | search : searchInput | multiOrderBy : sortOptions' [transaction]='transaction'></app-transaction-item>

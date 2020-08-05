@@ -1,8 +1,11 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators, AbstractControl, ValidatorFn, ValidationErrors } from '@angular/forms';
 import { TransferConfirmation } from './transfer-confirmation';
 import { Transaction } from './transaction';
-import { defaultMerchantLogo } from '../core/constants';
+import { defaultMerchantLogo, accountBalanceKey } from '../core/constants';
+import { LocalStorageService } from '../core/local-storage.service';
+import { CurrencyPipe } from '@angular/common';
+import { minimumBalance } from './minimum-balance.validator';
 
 @Component({
   selector: 'app-make-a-transfer',
@@ -11,19 +14,33 @@ import { defaultMerchantLogo } from '../core/constants';
 })
 export class MakeATransferComponent implements OnInit {
 
+  public fromAccountPlaceholder = '';
+
   public form: FormGroup = new FormGroup({
-    fromAccount: new FormControl(null, []),
-    toAccount: new FormControl(null, []),
-    amount: new FormControl(null, []),
+    toAccount: new FormControl(null, [Validators.required]),
+    amount: new FormControl(null, [Validators.required, Validators.pattern(/^\d*\.?\d*$/)]),
+  },
+  {
+    validators: [minimumBalance(this.localStorageService)]
   });
 
+  public get toAccount(): any { return this.form.get('toAccount'); }
+
+  public get amount(): any { return this.form.get('amount'); }
+  
   @Output()
   public createTransfer: EventEmitter<any> = new EventEmitter();
 
-  constructor(public transferConfirmation: TransferConfirmation) { }
+  constructor(
+    public transferConfirmation: TransferConfirmation,
+    public localStorageService: LocalStorageService,
+    private currencyPipe: CurrencyPipe) { }
 
   ngOnInit(): void {
+    this.fromAccountPlaceholder = `Free Checking(4692) ${this.currencyPipe.transform(this.accountBalance)}`;
   }
+
+  public get accountBalance(): string { return this.localStorageService.get({ name: accountBalanceKey }); }
 
   public tryToSubmit() {
     const transaction = {} as Transaction;
@@ -34,6 +51,14 @@ export class MakeATransferComponent implements OnInit {
     transaction.transactionDate = Date.now();
     transaction.merchantLogo = defaultMerchantLogo;
 
-    this.transferConfirmation.create({ transaction });
+    this.form.reset();
+
+    const component = this.transferConfirmation.create({ transaction });
+
+    component.afterClose$.pipe(
+
+    ).subscribe(x => {
+      this.fromAccountPlaceholder = `Free Checking(4692) ${this.currencyPipe.transform(this.accountBalance)}`;
+    });
   }
 }

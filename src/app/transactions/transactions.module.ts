@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, CurrencyPipe } from '@angular/common';
 import { TransactionsComponent } from './transactions.component';
 import { MakeATransferComponent } from './make-a-transfer.component';
 import { RecentTransactionsComponent } from './recent-transactions.component';
@@ -33,7 +33,8 @@ import { TransferConfirmation } from './transfer-confirmation';
   ],
   providers: [
     TransactionService,
-    TransferConfirmation
+    TransferConfirmation,
+    CurrencyPipe
   ],
   exports: [
     TransactionsComponent

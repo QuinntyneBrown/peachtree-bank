@@ -4,6 +4,7 @@ import { Transaction } from './transaction';
 import { TransactionService } from './transaction.service';
 import { LocalStorageService } from '../core/local-storage.service';
 import { accountBalanceKey } from '../core/constants';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-transfer-confirmation-overlay',
@@ -11,6 +12,9 @@ import { accountBalanceKey } from '../core/constants';
   styleUrls: ['./transfer-confirmation-overlay.component.css']
 })
 export class TransferConfirmationOverlayComponent {
+  public afterClose$: Subject<any> = new Subject();
+  
+  public transaction: Transaction;
 
   constructor(
     public overlayRef: OverlayRef,
@@ -20,21 +24,19 @@ export class TransferConfirmationOverlayComponent {
 
   }
 
-
   public get accountBalance(): any {
     return this.localStorageService.get({ name: accountBalanceKey });
   }
 
-  public transaction: Transaction;
-
-  public close() {
+  public close(): void {
     this.overlayRef.dispose();
+    this.afterClose$.next();
   }
 
-  public confirm() {
-    const  v = [this.transaction].concat(this.transactionService.transactions$.value);
-    this.transactionService.transactions$.next(v);
-    this.overlayRef.dispose();
+  public confirm(): void {
+    const  transactions = [this.transaction].concat(this.transactionService.transactions$.value);
+    this.transactionService.transactions$.next(transactions);
+    this.localStorageService.put({ name: accountBalanceKey, value: this.accountBalance - Number.parseInt(this.transaction.amount) });
+    this.close();
   }
-
 }
