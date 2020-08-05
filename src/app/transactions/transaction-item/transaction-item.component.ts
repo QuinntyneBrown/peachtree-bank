@@ -14,27 +14,6 @@ export class TransactionItemComponent implements OnInit {
   constructor(public elementRef: ElementRef) { }
 
   ngOnInit(): void {
-    let color: string;
-
-    switch (this.transaction.transactionType) {
-
-      case 'Card Payment': {
-        color = '#12a580';
-        break;
-      }
-
-      case 'Online Transfer': {
-        color = '#c12020';
-        break;
-      }
-
-      case 'Transaction': {
-        color = '#1180aa';
-        break;
-      }
-
-    }
-
-    this.elementRef.nativeElement.style.setProperty('--border-color', color);
+    this.elementRef.nativeElement.style.setProperty('--border-color', this.transaction.categoryCode);
   }
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Transaction } from '../types/transaction';
-import { defaultMerchantLogo, accountBalanceKey } from '../../core/constants';
+import { defaultMerchantLogo, accountBalanceKey, defaultCategoryCode } from '../../core/constants';
 import { LocalStorageService } from '../../core/local-storage.service';
 import { CurrencyPipe } from '@angular/common';
 import { minimumBalance } from '../validators/minimum-balance.validator';
@@ -27,7 +27,7 @@ export class MakeATransferComponent implements OnInit {
   public get toAccount(): any { return this.form.get('toAccount'); }
 
   public get amount(): any { return this.form.get('amount'); }
-  
+
   @Output()
   public createTransfer: EventEmitter<any> = new EventEmitter();
 
@@ -50,6 +50,7 @@ export class MakeATransferComponent implements OnInit {
     transaction.transactionType = 'Transaction';
     transaction.transactionDate = Date.now();
     transaction.merchantLogo = defaultMerchantLogo;
+    transaction.categoryCode = defaultCategoryCode;
 
     this.form.reset();
 

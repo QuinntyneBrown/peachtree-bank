@@ -1,11 +1,11 @@
-import { Component, OnInit, EventEmitter, Output, Input, ElementRef } from '@angular/core';
+import { Component, EventEmitter, Output, Input, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-sort-by',
   templateUrl: './sort-by.component.html',
   styleUrls: ['./sort-by.component.css']
 })
-export class SortByComponent implements OnInit {
+export class SortByComponent {
 
   @Input()
   public sortAscending = true;
@@ -16,13 +16,7 @@ export class SortByComponent implements OnInit {
   @Output()
   public sort: EventEmitter<any> = new EventEmitter();
 
-  constructor(public elementRef: ElementRef) {
-
-  }
-
-  ngOnInit() {
-    
-  }
+  constructor(public elementRef: ElementRef) { }
 
   public onClick(field: SortBy): void {
     if (this.sortBy && this.sortBy === field) {
