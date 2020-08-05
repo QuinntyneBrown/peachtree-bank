@@ -1,4 +1,4 @@
-<app-sub-header title='Recent Transactions'></app-sub-header>
+<app-title title='Recent Transactions'></app-title>
 <div class='recentTransactions__controls'>
     <input type="text" placeholder="Search by typing..." [(ngModel)]='searchInput'>
     <app-sort-by (sort)='onSort($event)' [sortBy]='"Date"' [sortAscending]='sortAscending'></app-sort-by>

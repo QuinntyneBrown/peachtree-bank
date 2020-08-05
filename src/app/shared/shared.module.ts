@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HeaderComponent } from './header.component';
-import { SubHeaderComponent } from './sub-header.component';
-import { SortByComponent } from './sort-by.component';
-import { SearchComponent } from './search.component';
+import { HeaderComponent } from './header/header.component';
+import { TitleComponent } from './title/title.component';
+import { SortByComponent } from './sort-by/sort-by.component';
 import { PortalModule } from '@angular/cdk/portal';
 import { OverlayModule } from '@angular/cdk/overlay';
 
@@ -12,9 +11,8 @@ import { OverlayModule } from '@angular/cdk/overlay';
 @NgModule({
   declarations: [
     HeaderComponent,
-    SubHeaderComponent,
-    SortByComponent,
-    SearchComponent
+    TitleComponent,
+    SortByComponent
   ],
   imports: [
     CommonModule,
@@ -23,11 +21,10 @@ import { OverlayModule } from '@angular/cdk/overlay';
   ],
   exports: [
     HeaderComponent,
-    SubHeaderComponent,
-    SearchComponent,
+    TitleComponent,
     SortByComponent,
     PortalModule,
-    OverlayModule  
+    OverlayModule
   ]
 })
 export class SharedModule { }

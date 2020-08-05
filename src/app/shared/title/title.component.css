@@ -5,7 +5,7 @@
     background-color: #0c8397;
     justify-content: center;
     align-content: center; 
-    --background-image-url: url('../../assets/briefcase.png');
+    --background-image-url: url('../../../assets/briefcase.png');
     --height: 60px;
     height: var(--height);
 }
