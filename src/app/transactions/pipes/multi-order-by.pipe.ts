@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Transaction } from './transaction';
+import { Transaction } from '../types/transaction';
 
 @Pipe({
   name: 'multiOrderBy'

@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { LocalStorageService } from './core/local-storage.service';
 import { accountBalanceKey } from './core/constants';
-import { TransactionService } from './transactions/transaction.service';
-import { Transaction } from './transactions/transaction';
+import { TransactionService } from './transactions/services/transaction.service';
 
 @Component({
   selector: 'app-root',

@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Transaction } from '../transactions/transaction';
+import { Transaction } from '../types/transaction';
 
 @Pipe({
   name: 'search'

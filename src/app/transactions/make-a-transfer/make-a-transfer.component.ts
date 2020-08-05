@@ -1,10 +1,10 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Transaction } from '../transaction';
+import { Transaction } from '../types/transaction';
 import { defaultMerchantLogo, accountBalanceKey } from '../../core/constants';
 import { LocalStorageService } from '../../core/local-storage.service';
 import { CurrencyPipe } from '@angular/common';
-import { minimumBalance } from '../minimum-balance.validator';
+import { minimumBalance } from '../validators/minimum-balance.validator';
 import { TransferConfirmation } from '../transfer-confirmation-overlay/transfer-confirmation';
 
 @Component({

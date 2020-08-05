@@ -4,12 +4,12 @@ import { TransactionsComponent } from './transactions/transactions.component';
 import { MakeATransferComponent } from './make-a-transfer/make-a-transfer.component';
 import { RecentTransactionsComponent } from './recent-transactions/recent-transactions.component';
 import { TransactionItemComponent } from './transaction-item/transaction-item.component';
-import { TransactionService } from './transaction.service';
+import { TransactionService } from './services/transaction.service';
 import { SharedModule } from '../shared/shared.module';
 import { CoreModule } from '../core/core.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MultiOrderByPipe } from './multi-order-by.pipe';
-import { SearchPipe } from './search.pipe';
+import { MultiOrderByPipe } from './pipes/multi-order-by.pipe';
+import { SearchPipe } from './pipes/search.pipe';
 import { TransferConfirmationOverlayComponent } from './transfer-confirmation-overlay/transfer-confirmation-overlay.component';
 import { TransferConfirmation } from './transfer-confirmation-overlay/transfer-confirmation';
 

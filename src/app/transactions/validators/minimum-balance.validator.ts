@@ -1,6 +1,6 @@
-import { LocalStorageService } from '../core/local-storage.service';
+import { LocalStorageService } from '../../core/local-storage.service';
 import { ValidationErrors, ValidatorFn, AbstractControl } from '@angular/forms';
-import { accountBalanceKey } from '../core/constants';
+import { accountBalanceKey } from '../../core/constants';
 
 export function minimumBalance(localSorageService: LocalStorageService): ValidatorFn {
     return (form: AbstractControl): ValidationErrors | null => {

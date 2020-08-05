@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Transaction } from '../transaction';
+import { Transaction } from '../types/transaction';
 
 @Component({
   selector: 'app-recent-transactions',

@@ -1,9 +1,8 @@
 import { Injectable, ComponentRef, Injector } from '@angular/core';
 import { TransferConfirmationOverlayComponent } from './transfer-confirmation-overlay.component';
 import { PortalInjector, ComponentPortal } from '@angular/cdk/portal';
-import { Observable } from 'rxjs';
 import { Overlay, OverlayRef } from '@angular/cdk/overlay';
-import { Transaction } from '../transaction';
+import { Transaction } from '../types/transaction';
 
 
 @Injectable({
