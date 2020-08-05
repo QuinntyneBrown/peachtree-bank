@@ -1,11 +1,11 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { FormGroup, FormControl, Validators, AbstractControl, ValidatorFn, ValidationErrors } from '@angular/forms';
-import { TransferConfirmation } from './transfer-confirmation';
-import { Transaction } from './transaction';
-import { defaultMerchantLogo, accountBalanceKey } from '../core/constants';
-import { LocalStorageService } from '../core/local-storage.service';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Transaction } from '../transaction';
+import { defaultMerchantLogo, accountBalanceKey } from '../../core/constants';
+import { LocalStorageService } from '../../core/local-storage.service';
 import { CurrencyPipe } from '@angular/common';
-import { minimumBalance } from './minimum-balance.validator';
+import { minimumBalance } from '../minimum-balance.validator';
+import { TransferConfirmation } from '../transfer-confirmation-overlay/transfer-confirmation';
 
 @Component({
   selector: 'app-make-a-transfer',

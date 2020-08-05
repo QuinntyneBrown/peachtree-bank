@@ -1,5 +1,5 @@
 :host {
-    background-image: url('../../assets/background.jpg');
+    background-image: url('../../../assets/background.jpg');
     display: block;
     background-size: cover; 
     background-repeat: no-repeat;

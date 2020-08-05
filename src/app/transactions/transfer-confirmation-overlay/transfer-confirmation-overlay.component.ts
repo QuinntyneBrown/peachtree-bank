@@ -1,9 +1,9 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { OverlayRef } from '@angular/cdk/overlay';
-import { Transaction } from './transaction';
-import { TransactionService } from './transaction.service';
-import { LocalStorageService } from '../core/local-storage.service';
-import { accountBalanceKey } from '../core/constants';
+import { Transaction } from '../transaction';
+import { TransactionService } from '../transaction.service';
+import { LocalStorageService } from '../../core/local-storage.service';
+import { accountBalanceKey } from '../../core/constants';
 import { Subject } from 'rxjs';
 
 @Component({

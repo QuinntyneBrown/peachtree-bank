@@ -3,7 +3,7 @@ import { TransferConfirmationOverlayComponent } from './transfer-confirmation-ov
 import { PortalInjector, ComponentPortal } from '@angular/cdk/portal';
 import { Observable } from 'rxjs';
 import { Overlay, OverlayRef } from '@angular/cdk/overlay';
-import { Transaction } from './transaction';
+import { Transaction } from '../transaction';
 
 
 @Injectable({

@@ -1,5 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Transaction } from './transaction';
+import { Component, Input } from '@angular/core';
+import { Transaction } from '../transaction';
 
 @Component({
   selector: 'app-recent-transactions',
@@ -19,10 +19,6 @@ export class RecentTransactionsComponent  {
 
   public onSort($event): void {
     this.sortOptions = $event;
-    //this.sortOptions.searchInput = this.searchInput;
   }
-
-
-
 }
 
