@@ -5,7 +5,8 @@ import { ButtonComponent } from './button.component';
 import { SubHeaderComponent } from './sub-header.component';
 import { SortByComponent } from './sort-by.component';
 import { SearchComponent } from './search.component';
-
+import { PortalModule } from '@angular/cdk/portal';
+import { OverlayModule } from '@angular/cdk/overlay';
 
 
 
@@ -18,14 +19,18 @@ import { SearchComponent } from './search.component';
     SearchComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    PortalModule,
+    OverlayModule
   ],
   exports: [
     ButtonComponent,
     HeaderComponent,
     SubHeaderComponent,
     SearchComponent,
-    SortByComponent
+    SortByComponent,
+    PortalModule,
+    OverlayModule  
   ]
 })
 export class SharedModule { }

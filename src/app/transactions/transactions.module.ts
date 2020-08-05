@@ -10,6 +10,8 @@ import { CoreModule } from '../core/core.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MultiOrderByPipe } from './multi-order-by.pipe';
 import { SearchPipe } from './search.pipe';
+import { TransferConfirmationOverlayComponent } from './transfer-confirmation-overlay.component';
+import { TransferConfirmation } from './transfer-confirmation';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,8 @@ import { SearchPipe } from './search.pipe';
     RecentTransactionsComponent,
     TransactionItemComponent,
     SearchPipe,
-    MultiOrderByPipe
+    MultiOrderByPipe,
+    TransferConfirmationOverlayComponent
   ],
   imports: [
     CoreModule,
@@ -29,7 +32,8 @@ import { SearchPipe } from './search.pipe';
     ReactiveFormsModule
   ],
   providers: [
-    TransactionService
+    TransactionService,
+    TransferConfirmation
   ],
   exports: [
     TransactionsComponent

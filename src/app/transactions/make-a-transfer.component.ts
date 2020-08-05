@@ -1,5 +1,7 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Form, FormGroup, FormControl } from '@angular/forms';
+import { TransferConfirmation } from './transfer-confirmation';
+import { Transaction } from './transaction';
 
 @Component({
   selector: 'app-make-a-transfer',
@@ -17,13 +19,19 @@ export class MakeATransferComponent implements OnInit {
   @Output()
   public createTransfer: EventEmitter<any> = new EventEmitter();
 
-  constructor() { }
+  constructor(public transferConfirmation: TransferConfirmation) { }
 
   ngOnInit(): void {
   }
 
   public tryToSubmit() {
-    console.log(this.form.value);
-    this.createTransfer.emit(this.form.value);
+    const transaction = {} as Transaction;
+
+    transaction.amount = this.form.value.amount;
+    transaction.merchant = this.form.value.toAccount;
+
+    this.transferConfirmation.create({ transaction });
+
+    //this.createTransfer.emit(this.form.value);
   }
 }
