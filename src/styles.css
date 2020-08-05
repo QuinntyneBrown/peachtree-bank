@@ -21,3 +21,20 @@ input[type=text] {
 input[type=text]:focus { 
     outline: none;
 }
+
+button {
+    width: 200px;
+    height: 42px;
+    color: rgb(255,255,255);
+    background-color:  #ee7033;
+    line-height: 42px;
+    text-align: center;
+    display: inline-block;
+    border-radius: 5px;
+    color:white;
+    cursor: pointer;
+    text-align: center;
+    user-select: none;  
+    border: none;  
+    outline: none;
+}

@@ -1,7 +1,7 @@
-<h1 (click)='close()'>X</h1>
-
-<h1>{{ transaction.merchant }}</h1>
-<h1> {{ transaction.amount }} </h1>
+<app-sub-header title='Make a Transfer Confirmation' style="--height:42px; --background-image-url:url('../../assets/arrows.png');"></app-sub-header>
 
 
-<h1>{{accountBalance}}</h1>
+<app-transaction-item [transaction]='transaction'></app-transaction-item>
+
+<button (click)='close()'>CANCEL</button>
+<button (click)='confirm()'>CONFIRM</button>

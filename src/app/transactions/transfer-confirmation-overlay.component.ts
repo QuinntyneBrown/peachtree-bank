@@ -10,7 +10,7 @@ import { accountBalanceKey } from '../core/constants';
   templateUrl: './transfer-confirmation-overlay.component.html',
   styleUrls: ['./transfer-confirmation-overlay.component.css']
 })
-export class TransferConfirmationOverlayComponent implements OnInit {
+export class TransferConfirmationOverlayComponent {
 
   constructor(
     public overlayRef: OverlayRef,
@@ -20,11 +20,6 @@ export class TransferConfirmationOverlayComponent implements OnInit {
 
   }
 
-  ngOnInit(): void {
-    let balance = this.localStorageService.get({ name: accountBalanceKey });
-    balance -= 25;
-    this.localStorageService.put({ name: accountBalanceKey, value: balance });
-  }
 
   public get accountBalance(): any {
     return this.localStorageService.get({ name: accountBalanceKey });
@@ -33,6 +28,12 @@ export class TransferConfirmationOverlayComponent implements OnInit {
   public transaction: Transaction;
 
   public close() {
+    this.overlayRef.dispose();
+  }
+
+  public confirm() {
+    const  v = [this.transaction].concat(this.transactionService.transactions$.value);
+    this.transactionService.transactions$.next(v);
     this.overlayRef.dispose();
   }
 

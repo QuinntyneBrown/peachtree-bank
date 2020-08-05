@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { LocalStorageService } from './core/local-storage.service';
 import { accountBalanceKey } from './core/constants';
+import { TransactionService } from './transactions/transaction.service';
+import { Transaction } from './transactions/transaction';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +10,14 @@ import { accountBalanceKey } from './core/constants';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(public localStorageService: LocalStorageService) {
-    localStorageService.put({ name: accountBalanceKey, value: 500 });
+  constructor(public localStorageService: LocalStorageService, transactionService: TransactionService) {
+
+    let total = 0;
+
+    for (const t of transactionService.transactions$.value) {
+      total += Number.parseInt(t.amount);
+    }
+
+    localStorageService.put({ name: accountBalanceKey, value: 1000 - total });
   }
 }

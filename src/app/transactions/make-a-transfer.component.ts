@@ -1,7 +1,8 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { Form, FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl } from '@angular/forms';
 import { TransferConfirmation } from './transfer-confirmation';
 import { Transaction } from './transaction';
+import { defaultMerchantLogo } from '../core/constants';
 
 @Component({
   selector: 'app-make-a-transfer',
@@ -29,9 +30,10 @@ export class MakeATransferComponent implements OnInit {
 
     transaction.amount = this.form.value.amount;
     transaction.merchant = this.form.value.toAccount;
+    transaction.transactionType = 'Transaction';
+    transaction.transactionDate = Date.now();
+    transaction.merchantLogo = defaultMerchantLogo;
 
     this.transferConfirmation.create({ transaction });
-
-    //this.createTransfer.emit(this.form.value);
   }
 }
